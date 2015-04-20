@@ -1,4 +1,4 @@
-var AppView = require("./js/app-view.js")
+var AppView = require("./js/app-view.js");
 
 $(function () {
     var commands = [

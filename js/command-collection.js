@@ -1,5 +1,7 @@
-var app = app || {};
+var CommandModel = require("./command-model.js");
 
-app.CommandCollection = Backbone.Collection.extend({
-    model: app.CommandModel
+var CommandCollection = Backbone.Collection.extend({
+    model: CommandModel
 });
+
+module.exports = CommandCollection;

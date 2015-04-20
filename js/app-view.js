@@ -1,6 +1,8 @@
-var app = app || {};
+var CommandView = require("./command-view.js");
+var CommandCollection = require("./command-collection.js");
+var MessageView = require("./message-view.js");
 
-app.AppView = Backbone.View.extend({
+var AppView = Backbone.View.extend({
     el: '#terminal',
 
     events: {
@@ -20,13 +22,13 @@ app.AppView = Backbone.View.extend({
         this.$command = this.$('#command');
 
         // 初始化命令输入行
-        this.commandView = new app.CommandView(prompt);
+        this.commandView = new CommandView(prompt);
         this.$command.prepend(this.commandView.render().el);
 
         this.messages = greeting;
         this.renderMessage();
 
-        this.collection = new app.CommandCollection(commands);
+        this.collection = new CommandCollection(commands);
     },
 
     inputFocus: function() {
@@ -71,8 +73,10 @@ app.AppView = Backbone.View.extend({
 
     renderMessage: function(value) {
         for (var i = 0; i < this.messages.length; i++) {
-            this.messageView = new app.MessageView(this.messages[i]);
+            this.messageView = new MessageView(this.messages[i]);
             this.$printEl.append(this.messageView.render().el);
         }
     }
 });
+
+module.exports = AppView;

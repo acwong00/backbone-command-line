@@ -1,6 +1,4 @@
-var app = app || {};
-
-app.CommandView = Backbone.View.extend({
+var CommandView = Backbone.View.extend({
     tagName: 'span',
 
     template: _.template($('#commandTemplate').html()),
@@ -16,3 +14,5 @@ app.CommandView = Backbone.View.extend({
     }
 
 });
+
+module.exports = CommandView;

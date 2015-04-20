@@ -1,6 +1,4 @@
-var app = app || {};
-
-app.MessageView = Backbone.View.extend({
+var MessageView = Backbone.View.extend({
     tagName: 'div',
 
     template: _.template($('#messageTemplate').html()),
@@ -20,3 +18,5 @@ app.MessageView = Backbone.View.extend({
         return this;
     }
 });
+
+module.exports = MessageView;
