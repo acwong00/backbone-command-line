@@ -174,10 +174,12 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var commandTemplate = __webpack_require__(6);
+
 	var CommandView = Backbone.View.extend({
 	    tagName: 'span',
 
-	    template: _.template($('#commandTemplate').html()),
+	    template: _.template(commandTemplate),
 
 	    initialize: function (prompt) {
 	        this.prompt = prompt;
@@ -209,10 +211,12 @@
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var messageTemplate = __webpack_require__(7);
+
 	var MessageView = Backbone.View.extend({
 	    tagName: 'div',
 
-	    template: _.template($('#messageTemplate').html()),
+	    template: _.template(messageTemplate),
 
 	    initialize: function (model) {
 	        var defaults = {
@@ -244,6 +248,18 @@
 	});
 
 	module.exports = CommandModel;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<label><%- prompt %></label>";
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<div <%= color ? ('style=\"color:' + color + '\"') : '' %>>\r\n    <%= link ? ('<a href=\"' + link + '\">') : '' %>\r\n        <%= message %>\r\n    <%= link ? ('</a>') : '' %>\r\n</div>";
 
 /***/ }
 /******/ ]);

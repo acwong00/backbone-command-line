@@ -1,7 +1,9 @@
+var commandTemplate = require('html!../templates/commandTemplate.html');
+
 var CommandView = Backbone.View.extend({
     tagName: 'span',
 
-    template: _.template($('#commandTemplate').html()),
+    template: _.template(commandTemplate),
 
     initialize: function (prompt) {
         this.prompt = prompt;

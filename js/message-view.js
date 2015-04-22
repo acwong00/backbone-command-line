@@ -1,7 +1,9 @@
+var messageTemplate = require('html!../templates/messageTemplate.html');
+
 var MessageView = Backbone.View.extend({
     tagName: 'div',
 
-    template: _.template($('#messageTemplate').html()),
+    template: _.template(messageTemplate),
 
     initialize: function (model) {
         var defaults = {
