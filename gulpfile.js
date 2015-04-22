@@ -13,21 +13,12 @@ gulp.task('lint', function  () {
 gulp.task('webpack', function () {
     gulp.src('./test.js')
         .pipe(webpack())
-        .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('scripts', function() {
-    gulp.src('./dist/*.js')
+        .pipe(gulp.dest('dist/'))
         .pipe(rename('all.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('default', function(){
-    gulp.run('lint', 'webpack', 'scripts');
-
-    // 监听文件变化
-    // gulp.watch('./js/*.js', function(){
-    //     gulp.run('lint', 'sass', 'scripts');
-    // });
+    gulp.run('lint', 'webpack');
 });
